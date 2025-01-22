@@ -12,15 +12,11 @@ DATABASE_1 = os.getenv('DB_NAME')
 UID_1 = os.getenv('DB_USER')
 PWD_1 = os.getenv('DB_PASSWORD')
 print(SERVER_1, DATABASE_1, UID_1, PWD_1)
-# connection_string=("sql+pyodbc://"+UID_1+":"+PWD_1+"@"+SERVER_1+"/"+DATABASE_1+"?driver=ODBC+Driver+17+for+SQL+Server")
-# print(connection_string)
+
 app = Flask(__name__)
 CORS(app)
 app.secret_key = "your_secret_key"
-# engine = create_engine("sql+pyodbc://?:?@?",UID_1,PWD_1,DATABASE_1)
 
-# Database connectionp
-# conn = pyodbc.connect('Driver={ODBC Driver 18 for SQL Server};Server=tcp:pnbng-team.database.windows.net,1433;Database=SuperBot-login;Uid=mukul_root;Pwd=Nuance@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;')
 conn = pyodbc.connect('DRIVER={ODBC Driver 18 for SQL Server};SERVER='+SERVER_1+';DATABASE='+DATABASE_1+';UID='+UID_1+';PWD='+PWD_1+';Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;')
 cursor = conn.cursor()
 
